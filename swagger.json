@@ -438,9 +438,14 @@
             "type" : "string",
             "description" : "Medicamento.NroLote"
           },
-          "SanitaryRegistationNumber" : {
+          "SanitaryRegistrationNumber" : {
             "type" : "string",
             "description" : "Medicamento.RegSanitario"
+          },
+          "RegistrationDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Medicamento.FechRegistro"
           }
         }
       },
