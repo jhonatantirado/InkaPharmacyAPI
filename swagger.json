@@ -446,6 +446,11 @@
             "type" : "string",
             "format" : "date",
             "description" : "Medicamento.FechRegistro"
+          },
+          "ExpirationDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Medicamento.FechRegistro"
           }
         }
       },
