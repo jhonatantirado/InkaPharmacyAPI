@@ -986,6 +986,15 @@
             "maxLength" : 400
           }
         }
+      },
+      "SalesOrderDTO" : {
+        "type" : "object",
+        "properties" : {
+          "SalesOrderId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
       }
     }
   }
