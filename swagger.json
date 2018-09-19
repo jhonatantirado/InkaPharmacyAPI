@@ -423,6 +423,16 @@
           "Price" : {
             "type" : "number",
             "description" : "Medicamento.precio"
+          },
+          "Stock" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.stock"
+          },
+          "CategoryId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.cod_cat"
           }
         }
       },
