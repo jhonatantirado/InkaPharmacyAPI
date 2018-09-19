@@ -783,8 +783,8 @@
     "/api/Sales" : {
       "post" : {
         "tags" : [ "Sales" ],
-        "summary" : "Login",
-        "description" : "devolver datos de usuario logeado",
+        "summary" : "Venta de medicamentos",
+        "description" : "vender medicamentos",
         "operationId" : "PlaceOrder",
         "requestBody" : {
           "description" : "Credenciales del usuario",
