@@ -841,12 +841,12 @@
         "description" : "comprar medicamentos",
         "operationId" : "RegisterPurchaseOrder",
         "requestBody" : {
-          "description" : "Credenciales del usuario",
+          "description" : "Orden de compra",
           "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SalesOrderDTO"
+                "$ref" : "#/components/schemas/PurchaseOrderDTO"
               }
             }
           }
