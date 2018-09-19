@@ -418,6 +418,7 @@
           },
           "Name" : {
             "type" : "string",
+            "format" : "decimal",
             "description" : "Medicamento.nombre"
           },
           "Price" : {
