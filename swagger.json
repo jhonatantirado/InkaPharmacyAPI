@@ -911,7 +911,7 @@
     },
     "/api/Purchase/Order" : {
       "post" : {
-        "tags" : [ "Purchase" ],
+        "tags" : [ "Purchases" ],
         "summary" : "Compra de medicamentos de los proveedores",
         "description" : "comprar medicamentos de los proveedores",
         "operationId" : "RegisterPurchaseOrder",
