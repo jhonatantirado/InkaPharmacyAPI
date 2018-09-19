@@ -1138,7 +1138,7 @@
       },
       "PurchaseOrderDTO" : {
         "type" : "object",
-        "required" : [ "PurchaseOrderId", "PurchaseDate", "ProviderId", "EmployeeId" ],
+        "required" : [ "PurchaseOrderId", "PurchaseDate", "ProviderId", "EmployeeId", "PurchaseOrderDetails" ],
         "properties" : {
           "PurchaseOrderId" : {
             "type" : "integer",
@@ -1166,14 +1166,57 @@
             "default" : 0,
             "minimum" : 0
           },
-          "SalesOrderDetails" : {
+          "PurchaseOrderDetails" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/SalesOrderDetailDTO"
+              "$ref" : "#/components/schemas/PurchaseOrderDetailDTO"
             },
             "uniqueItems" : true,
             "minItems" : 1,
             "maxItems" : 100
+          }
+        }
+      },
+      "PurchaseOrderDetailDTO" : {
+        "type" : "object",
+        "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price" ],
+        "properties" : {
+          "SalesOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.nro_venta->Venta.nro_venta",
+            "readOnly" : true
+          },
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cod_med->Medicamento.cod_med",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cantidad",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 100
+          },
+          "Price" : {
+            "type" : "number",
+            "format" : "float",
+            "description" : "DetalleVenta.precio",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 3000
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
           }
         }
       }
