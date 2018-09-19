@@ -832,6 +832,65 @@
             }
           }
         }
+      },
+      "get" : {
+        "tags" : [ "Sales" ],
+        "summary" : "Lista de ordenes de venta a los clientes",
+        "operationId" : "GetSalesOrdersList",
+        "description" : "Obtener lista paginada de ordenes de venta a los clientes",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 100
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "lista de ordenes de venta",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/SalesOrderDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/Purchase/Order" : {
