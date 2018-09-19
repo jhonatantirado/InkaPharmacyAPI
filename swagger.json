@@ -418,7 +418,9 @@
           },
           "Name" : {
             "type" : "string",
-            "description" : "Medicamento.nombre"
+            "description" : "Medicamento.nombre",
+            "minLength" : 1,
+            "maxLength" : 30
           },
           "Price" : {
             "type" : "number",
@@ -437,11 +439,15 @@
           },
           "LotNumber" : {
             "type" : "string",
-            "description" : "Medicamento.NroLote"
+            "description" : "Medicamento.NroLote",
+            "minLength" : 1,
+            "maxLength" : 40
           },
           "SanitaryRegistrationNumber" : {
             "type" : "string",
-            "description" : "Medicamento.RegSanitario"
+            "description" : "Medicamento.RegSanitario",
+            "minLength" : 1,
+            "maxLength" : 40
           },
           "RegistrationDate" : {
             "type" : "string",
