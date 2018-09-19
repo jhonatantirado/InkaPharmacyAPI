@@ -1022,6 +1022,14 @@
             "default" : 1,
             "minimum" : 0,
             "maximum" : 1
+          },
+          "SalesOrderDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SalesOrderDetailDTO"
+            },
+            "minItems" : 1,
+            "maxItems" : 100
           }
         }
       },
