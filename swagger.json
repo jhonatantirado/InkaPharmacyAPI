@@ -438,13 +438,14 @@
             "format" : "int32",
             "description" : "Medicamento.stock",
             "default" : 0,
-            "minimum" : 0,
-            "maximum" : 3000
+            "minimum" : 0
           },
           "CategoryId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Medicamento.cod_cat"
+            "description" : "Medicamento.cod_cat",
+            "default" : 0,
+            "minimum" : 0
           },
           "LotNumber" : {
             "type" : "string",
