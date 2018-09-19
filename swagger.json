@@ -516,30 +516,34 @@
             "type" : "string",
             "description" : "Cliente.materno",
             "minLength" : 1,
-            "maxLength" : 20
+            "maxLength" : 20,
+            "nullable" : true
           },
           "Address" : {
             "type" : "string",
             "description" : "Cliente.direccion",
             "minLength" : 1,
-            "maxLength" : 30
+            "maxLength" : 30,
+            "nullable" : true
           },
           "Telephone" : {
             "type" : "string",
             "description" : "Cliente.telefono",
             "minLength" : 1,
-            "maxLength" : 30
+            "maxLength" : 30,
+            "nullable" : true
           },
           "Email" : {
             "type" : "string",
             "description" : "Cliente.correo",
             "minLength" : 1,
-            "maxLength" : 20
+            "maxLength" : 20,
+            "nullable" : true
           },
           "Status" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Cliente.estado,1 activo, 0 inactivo",
+            "description" : "Cliente.estado, 1 activo, 0 inactivo",
             "default" : 1,
             "minimum" : 0,
             "maximum" : 1
