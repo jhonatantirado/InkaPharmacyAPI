@@ -858,6 +858,7 @@
         }, {
           "in" : "query",
           "name" : "DateFrom",
+          "required" : true,
           "schema" : {
             "type" : "string",
             "format" : "date"
@@ -865,6 +866,7 @@
         }, {
           "in" : "query",
           "name" : "DateTo",
+          "required" : true,
           "schema" : {
             "type" : "string",
             "format" : "date"
