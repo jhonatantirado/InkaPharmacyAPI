@@ -474,7 +474,7 @@
             "type" : "integer",
             "format" : "int32",
             "description" : "Medicamento.estado_stock, 1 con stock, 0 sin stock",
-            "default" : 1,
+            "default" : 0,
             "minimum" : 0,
             "maximum" : 1
           }
