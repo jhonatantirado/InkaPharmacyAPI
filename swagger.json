@@ -1046,7 +1046,8 @@
             "format" : "int32",
             "description" : "DetalleVenta.cantidad",
             "default" : 0,
-            "minimum" : 0
+            "minimum" : 0,
+            "maximum" : 100
           },
           "Price" : {
             "type" : "number",
