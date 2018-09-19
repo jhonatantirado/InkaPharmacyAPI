@@ -1050,7 +1050,8 @@
           "SalesOrderId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Venta.nro_venta"
+            "description" : "Venta.nro_venta",
+            "readOnly" : true
           },
           "SaleDate" : {
             "type" : "string",
