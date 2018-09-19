@@ -476,7 +476,8 @@
           "FirstName" : {
             "type" : "string",
             "description" : "Cliente.nombre",
-            "maximum" : 15
+            "minLength" : 1,
+            "maxLength" : 15
           },
           "LastName1" : {
             "type" : "string",
