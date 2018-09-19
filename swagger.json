@@ -527,6 +527,7 @@
           },
           "Password" : {
             "type" : "string",
+            "format" : "password",
             "minLength" : 1,
             "maxLength" : 30
           }
