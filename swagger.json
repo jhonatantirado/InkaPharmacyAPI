@@ -833,6 +833,60 @@
           }
         }
       }
+    },
+    "/api/Purchase/Order" : {
+      "post" : {
+        "tags" : [ "Purchase" ],
+        "summary" : "Compra de medicamentos",
+        "description" : "comprar medicamentos",
+        "operationId" : "RegisterPurchaseOrder",
+        "requestBody" : {
+          "description" : "Credenciales del usuario",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SalesOrderDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "venta exitosa"
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -1179,7 +1233,7 @@
       },
       "PurchaseOrderDetailDTO" : {
         "type" : "object",
-        "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Price" ],
+        "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Cost" ],
         "properties" : {
           "PurchaseOrderId" : {
             "type" : "integer",
