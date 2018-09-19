@@ -33,6 +33,67 @@
     "description" : "Seguridad"
   } ],
   "paths" : {
+    "/api/Security/Login" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "Login",
+        "description" : "devolver datos de usuario logeado",
+        "operationId" : "Login",
+        "requestBody" : {
+          "description" : "Credenciales del usuario",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserCredentialsDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "cliente logeado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CustomerDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Customers" : {
       "get" : {
         "tags" : [ "Customers" ],
@@ -323,67 +384,6 @@
           },
           "400" : {
             "description" : "Error controlado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Error no controlado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Security/Login" : {
-      "post" : {
-        "tags" : [ "Security" ],
-        "summary" : "Login",
-        "description" : "devolver datos de usuario logeado",
-        "operationId" : "Login",
-        "requestBody" : {
-          "description" : "Credenciales del usuario",
-          "required" : true,
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/UserCredentialsDTO"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "cliente logeado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/CustomerDTO"
-                }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Error controlado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
-          },
-          "401" : {
-            "description" : "Acceso no autorizado",
             "content" : {
               "application/json" : {
                 "schema" : {
