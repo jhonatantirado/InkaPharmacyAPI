@@ -1027,6 +1027,7 @@
       },
       "SalesOrderDetailDTO" : {
         "type" : "object",
+        "required" : [ "SalesOrderId", "ProductId" ],
         "properties" : {
           "SalesOrderId" : {
             "type" : "integer",
