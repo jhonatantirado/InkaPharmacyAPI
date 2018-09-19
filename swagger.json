@@ -784,7 +784,7 @@
       "post" : {
         "tags" : [ "Sales" ],
         "summary" : "Venta de medicamentos a los clientes",
-        "description" : "vender medicamentos a los cliente",
+        "description" : "vender medicamentos a los clientes",
         "operationId" : "PlaceSalesOrder",
         "requestBody" : {
           "description" : "orden de venta",
@@ -837,8 +837,8 @@
     "/api/Purchase/Order" : {
       "post" : {
         "tags" : [ "Purchase" ],
-        "summary" : "Compra de medicamentos",
-        "description" : "comprar medicamentos",
+        "summary" : "Compra de medicamentos de los proveedores",
+        "description" : "comprar medicamentos de los proveedores",
         "operationId" : "RegisterPurchaseOrder",
         "requestBody" : {
           "description" : "Orden de compra",
