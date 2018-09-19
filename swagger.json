@@ -1004,7 +1004,7 @@
           "Status" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Medicamento.estado, 1 activo, 0 inactivo",
+            "description" : "Venta.estado, 1 activo, 0 inactivo",
             "default" : 1,
             "minimum" : 0,
             "maximum" : 1
