@@ -1181,31 +1181,31 @@
         "type" : "object",
         "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price" ],
         "properties" : {
-          "SalesOrderId" : {
+          "PurchaseOrderId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.nro_venta->Venta.nro_venta",
+            "description" : "DetalleCompra.cod_compra->Compra.cod_compra",
             "readOnly" : true
           },
           "ProductId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.cod_med->Medicamento.cod_med",
+            "description" : "DetalleCompra.cod_med->Medicamento.cod_med",
             "default" : 0,
             "minimum" : 0
           },
           "Quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.cantidad",
+            "description" : "DetalleCompra.cantidad",
             "default" : 0,
             "minimum" : 0,
             "maximum" : 100
           },
-          "Price" : {
+          "Cost" : {
             "type" : "number",
             "format" : "float",
-            "description" : "DetalleVenta.precio",
+            "description" : "DetalleCompra.costo",
             "default" : 0,
             "minimum" : 0,
             "maximum" : 3000
