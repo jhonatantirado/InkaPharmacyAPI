@@ -855,6 +855,20 @@
             "minimum" : 0,
             "maximum" : 100
           }
+        }, {
+          "in" : "query",
+          "name" : "DateFrom",
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }, {
+          "in" : "query",
+          "name" : "DateTo",
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
         } ],
         "responses" : {
           "201" : {
