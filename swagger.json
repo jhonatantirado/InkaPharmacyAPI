@@ -1009,7 +1009,7 @@
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/SalesOrderDTO"
+                    "$ref" : "#/components/schemas/PurchaseOrderDTO"
                   }
                 }
               }
@@ -1352,7 +1352,7 @@
           },
           "PurchaseDate" : {
             "type" : "string",
-            "format" : "date",
+            "format" : "date-time",
             "description" : "Compra.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
             "example" : "2018-07-21"
           },
