@@ -779,6 +779,67 @@
           }
         }
       }
+    },
+    "/api/Sales" : {
+      "post" : {
+        "tags" : [ "Sales" ],
+        "summary" : "Login",
+        "description" : "devolver datos de usuario logeado",
+        "operationId" : "PlaceOrder",
+        "requestBody" : {
+          "description" : "Credenciales del usuario",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SalesOrderDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "cliente logeado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CustomerDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
