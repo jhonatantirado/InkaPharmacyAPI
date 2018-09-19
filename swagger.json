@@ -1260,9 +1260,9 @@
           },
           "SaleDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : "Venta.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
-            "example" : "2018-07-21"
+            "format" : "date-time",
+            "description" : "Venta.fecha, formato yyyy-mm-ddThh:mm:ssZ, RFC 3339, section 5.6",
+            "example" : "2017-07-21T17:32:28Z"
           },
           "CustomerId" : {
             "type" : "integer",
