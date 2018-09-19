@@ -1134,6 +1134,54 @@
             "maximum" : 1
           }
         }
+      },
+      "PurchaseOrderDTO" : {
+        "type" : "object",
+        "properties" : {
+          "PurchaseOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Compra.cod_compra",
+            "readOnly" : true
+          },
+          "PurchaseDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Compra.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
+            "example" : "2018-07-21"
+          },
+          "ProviderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Compra.cod_provee->Proveedor.cod_clt",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "EmployeeId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.cod_emp->Empleado.cod_emp",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          },
+          "SalesOrderDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SalesOrderDetailDTO"
+            },
+            "uniqueItems" : true,
+            "minItems" : 1,
+            "maxItems" : 100
+          }
+        }
       }
     }
   }
