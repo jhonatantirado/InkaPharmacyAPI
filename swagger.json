@@ -799,14 +799,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "venta exitosa",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/CustomerDTO"
-                }
-              }
-            }
+            "description" : "venta exitosa"
           },
           "400" : {
             "description" : "Error controlado",
