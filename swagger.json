@@ -434,7 +434,7 @@
             "format" : "int32",
             "description" : "Medicamento.cod_cat"
           },
-          "BatchNumber" : {
+          "LotNumber" : {
             "type" : "string",
             "description" : "Medicamento.NroLote"
           }
