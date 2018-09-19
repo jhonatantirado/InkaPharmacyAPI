@@ -780,7 +780,7 @@
         }
       }
     },
-    "/api/Sales" : {
+    "/api/Sales/Order" : {
       "post" : {
         "tags" : [ "Sales" ],
         "summary" : "Venta de medicamentos",
