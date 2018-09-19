@@ -1004,7 +1004,7 @@
           "CustomerId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Cliente.cod_clt",
+            "description" : "Venta.cod_clt->Cliente.cod_clt",
             "default" : 0,
             "minimum" : 0
           },
