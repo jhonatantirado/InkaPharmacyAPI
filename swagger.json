@@ -1031,7 +1031,14 @@
           "SalesOrderId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.nro_venta"
+            "description" : "DetalleVenta.nro_venta->Venta.nro_venta"
+          },
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cod_med->Medicamento.",
+            "default" : 0,
+            "minimum" : 0
           }
         }
       }
