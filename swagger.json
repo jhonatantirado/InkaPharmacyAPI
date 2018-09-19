@@ -451,13 +451,15 @@
             "type" : "string",
             "description" : "Medicamento.NroLote",
             "minLength" : 1,
-            "maxLength" : 40
+            "maxLength" : 40,
+            "nullable" : true
           },
           "SanitaryRegistrationNumber" : {
             "type" : "string",
             "description" : "Medicamento.RegSanitario",
             "minLength" : 1,
-            "maxLength" : 40
+            "maxLength" : 40,
+            "nullable" : true
           },
           "RegistrationDate" : {
             "type" : "string",
