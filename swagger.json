@@ -1137,6 +1137,7 @@
       },
       "PurchaseOrderDTO" : {
         "type" : "object",
+        "required" : [ "PurchaseOrderId", "PurchaseDate", "ProviderId", "EmployeeId" ],
         "properties" : {
           "PurchaseOrderId" : {
             "type" : "integer",
