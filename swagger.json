@@ -437,6 +437,10 @@
           "LotNumber" : {
             "type" : "string",
             "description" : "Medicamento.NroLote"
+          },
+          "SanitaryRegistationNumber" : {
+            "type" : "string",
+            "description" : "Medicamento.RegSanitario"
           }
         }
       },
