@@ -1028,6 +1028,7 @@
             "items" : {
               "$ref" : "#/components/schemas/SalesOrderDetailDTO"
             },
+            "uniqueItems" : true,
             "minItems" : 1,
             "maxItems" : 100
           }
