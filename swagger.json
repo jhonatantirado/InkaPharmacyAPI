@@ -1099,7 +1099,8 @@
           "SalesOrderId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.nro_venta->Venta.nro_venta"
+            "description" : "DetalleVenta.nro_venta->Venta.nro_venta",
+            "readOnly" : true
           },
           "ProductId" : {
             "type" : "integer",
