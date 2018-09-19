@@ -459,7 +459,7 @@
           "ExpirationDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Medicamento.FechVencimiento"
+            "description" : "Medicamento.FechVencimiento, formato yyyy-mm-dd, RFC 3339, section 5.6"
           },
           "Status" : {
             "type" : "integer",
