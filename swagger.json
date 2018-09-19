@@ -425,7 +425,7 @@
           },
           "Price" : {
             "type" : "number",
-            "format" : "double",
+            "format" : "float",
             "description" : "Medicamento.precio"
           },
           "Stock" : {
