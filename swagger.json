@@ -965,8 +965,8 @@
       "get" : {
         "tags" : [ "Purchases" ],
         "summary" : "Lista de ordenes de compra a los proveedores",
-        "operationId" : "GetSalesOrdersList",
-        "description" : "Obtener lista paginada de ordenes de venta a los clientes",
+        "operationId" : "GetPurchaseOrdersList",
+        "description" : "Obtener lista paginada de ordenes de compra a los proveedores",
         "parameters" : [ {
           "in" : "query",
           "name" : "offset",
@@ -1003,7 +1003,7 @@
         } ],
         "responses" : {
           "201" : {
-            "description" : "lista de ordenes de venta",
+            "description" : "lista de ordenes de compra",
             "content" : {
               "application/json" : {
                 "schema" : {
