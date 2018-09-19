@@ -847,7 +847,7 @@
             "type" : "string",
             "format" : "date",
             "description" : "Medicamento.FechVencimiento, formato yyyy-mm-dd, RFC 3339, section 5.6",
-            "example" : "20120-07-21"
+            "example" : "2020-07-21"
           },
           "Status" : {
             "type" : "integer",
@@ -993,7 +993,21 @@
           "SalesOrderId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Venta."
+            "description" : "Venta.nro_venta"
+          },
+          "SaleDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Venta.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
+            "example" : "2018-07-21"
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
           }
         }
       }
