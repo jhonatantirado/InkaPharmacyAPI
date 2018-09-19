@@ -450,7 +450,17 @@
           "ExpirationDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "Medicamento.FechRegistro"
+            "description" : "Medicamento.FechVencimiento"
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.estado"
+          },
+          "StockStatus" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.estado_stock"
           }
         }
       },
