@@ -1036,9 +1036,32 @@
           "ProductId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "DetalleVenta.cod_med->Medicamento.",
+            "description" : "DetalleVenta.cod_med->Medicamento.cod_med",
             "default" : 0,
             "minimum" : 0
+          },
+          "Quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cantidad",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Price" : {
+            "type" : "number",
+            "format" : "float",
+            "description" : "DetalleVenta.precio",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 3000
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
           }
         }
       }
