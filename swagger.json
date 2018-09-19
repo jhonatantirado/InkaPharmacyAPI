@@ -841,6 +841,7 @@
         "parameters" : [ {
           "in" : "query",
           "name" : "offset",
+          "default" : 0,
           "schema" : {
             "type" : "integer",
             "format" : "int32",
