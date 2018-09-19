@@ -482,27 +482,32 @@
           "LastName1" : {
             "type" : "string",
             "description" : "Cliente.paterno",
-            "maximum" : 20
+            "minLength" : 1,
+            "maxLength" : 20
           },
           "LastName2" : {
             "type" : "string",
             "description" : "Cliente.materno",
-            "maximum" : 20
+            "minLength" : 1,
+            "maxLength" : 20
           },
           "Address" : {
             "type" : "string",
             "description" : "Cliente.direccion",
-            "maximum" : 30
+            "minLength" : 1,
+            "maxLength" : 30
           },
           "Telephone" : {
             "type" : "string",
             "description" : "Cliente.telefono",
-            "maximum" : 30
+            "minLength" : 1,
+            "maxLength" : 30
           },
           "Email" : {
             "type" : "string",
             "description" : "Cliente.correo",
-            "maximum" : 20
+            "minLength" : 1,
+            "maxLength" : 20
           },
           "Status" : {
             "type" : "integer",
