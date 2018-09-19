@@ -433,6 +433,10 @@
             "type" : "integer",
             "format" : "int32",
             "description" : "Medicamento.cod_cat"
+          },
+          "BatchNumber" : {
+            "type" : "string",
+            "description" : "Medicamento.NroLote"
           }
         }
       },
