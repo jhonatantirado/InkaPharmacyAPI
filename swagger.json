@@ -408,6 +408,24 @@
   },
   "components" : {
     "schemas" : {
+      "ProductDTO" : {
+        "type" : "object",
+        "properties" : {
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.cod_med"
+          },
+          "Name" : {
+            "type" : "string",
+            "description" : "Medicamento.nombre"
+          },
+          "Price" : {
+            "type" : "number",
+            "description" : "Medicamento.precio"
+          }
+        }
+      },
       "CustomerDTO" : {
         "type" : "object",
         "properties" : {
