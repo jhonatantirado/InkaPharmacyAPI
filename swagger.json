@@ -410,6 +410,7 @@
     "schemas" : {
       "ProductDTO" : {
         "type" : "object",
+        "required" : [ "Name", null ],
         "properties" : {
           "ProductId" : {
             "type" : "integer",
