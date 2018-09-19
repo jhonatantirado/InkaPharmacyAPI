@@ -783,11 +783,11 @@
     "/api/Sales/Order" : {
       "post" : {
         "tags" : [ "Sales" ],
-        "summary" : "Venta de medicamentos",
-        "description" : "vender medicamentos",
+        "summary" : "Venta de medicamentos a los clientes",
+        "description" : "vender medicamentos a los cliente",
         "operationId" : "PlaceSalesOrder",
         "requestBody" : {
-          "description" : "Credenciales del usuario",
+          "description" : "orden de venta",
           "required" : true,
           "content" : {
             "application/json" : {
@@ -853,7 +853,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "venta exitosa"
+            "description" : "compra exitosa"
           },
           "400" : {
             "description" : "Error controlado",
