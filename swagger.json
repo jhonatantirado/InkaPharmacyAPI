@@ -1011,7 +1011,7 @@
           "EmployeeId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Venta.cod_emp->Cliente.cod_emp",
+            "description" : "Venta.cod_emp->Empleado.cod_emp",
             "default" : 0,
             "minimum" : 0
           },
@@ -1022,6 +1022,16 @@
             "default" : 1,
             "minimum" : 0,
             "maximum" : 1
+          }
+        }
+      },
+      "SalesOrderDetailDTO" : {
+        "type" : "object",
+        "properties" : {
+          "SalesOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.nro_venta"
           }
         }
       }
