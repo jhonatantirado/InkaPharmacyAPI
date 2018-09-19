@@ -942,7 +942,8 @@
             "type" : "string",
             "format" : "password",
             "minLength" : 1,
-            "maxLength" : 30
+            "maxLength" : 30,
+            "writeOnly" : true
           }
         }
       },
