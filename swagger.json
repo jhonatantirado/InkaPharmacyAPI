@@ -426,7 +426,10 @@
           "Price" : {
             "type" : "number",
             "format" : "float",
-            "description" : "Medicamento.precio"
+            "description" : "Medicamento.precio",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 1000
           },
           "Stock" : {
             "type" : "integer",
