@@ -466,12 +466,17 @@
             "type" : "integer",
             "format" : "int32",
             "description" : "Medicamento.estado, 1 activo, 0 inactivo",
-            "default" : 1
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
           },
           "StockStatus" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Medicamento.estado_stock"
+            "description" : "Medicamento.estado_stock",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
           }
         }
       },
