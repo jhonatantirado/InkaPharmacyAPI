@@ -785,7 +785,7 @@
         "tags" : [ "Sales" ],
         "summary" : "Venta de medicamentos",
         "description" : "vender medicamentos",
-        "operationId" : "PlaceOrder",
+        "operationId" : "PlaceSalesOrder",
         "requestBody" : {
           "description" : "Credenciales del usuario",
           "required" : true,
