@@ -1001,6 +1001,13 @@
             "description" : "Venta.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
             "example" : "2018-07-21"
           },
+          "CustomerId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Cliente.cod_clt",
+            "default" : 0,
+            "minimum" : 0
+          },
           "Status" : {
             "type" : "integer",
             "format" : "int32",
