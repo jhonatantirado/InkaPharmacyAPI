@@ -1008,6 +1008,13 @@
             "default" : 0,
             "minimum" : 0
           },
+          "EmployeeId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.cod_emp->Cliente.cod_emp",
+            "default" : 0,
+            "minimum" : 0
+          },
           "Status" : {
             "type" : "integer",
             "format" : "int32",
