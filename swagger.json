@@ -465,7 +465,8 @@
           "Status" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Medicamento.estado"
+            "description" : "Medicamento.estado, 1 activo, 0 inactivo",
+            "default" : 1
           },
           "StockStatus" : {
             "type" : "integer",
