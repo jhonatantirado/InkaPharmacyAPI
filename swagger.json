@@ -569,7 +569,9 @@
         "properties" : {
           "message" : {
             "type" : "string",
-            "description" : "error message"
+            "description" : "error message",
+            "minLength" : 0,
+            "maxLength" : 400
           }
         }
       }
