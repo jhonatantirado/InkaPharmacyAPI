@@ -445,7 +445,8 @@
             "format" : "int32",
             "description" : "Medicamento.cod_cat",
             "default" : 0,
-            "minimum" : 0
+            "minimum" : 0,
+            "nullable" : true
           },
           "LotNumber" : {
             "type" : "string",
