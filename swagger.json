@@ -799,7 +799,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "cliente logeado",
+            "description" : "venta exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
