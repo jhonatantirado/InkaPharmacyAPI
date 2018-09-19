@@ -1,2 +1,2 @@
 # InkaPharmacyAPI
-Net Core REST API for InkaPharmacy
+Net Core & Java Spring REST API for InkaPharmacy
