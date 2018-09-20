@@ -1194,14 +1194,16 @@
           "Username" : {
             "type" : "string",
             "minLength" : 1,
-            "maxLength" : 30
+            "maxLength" : 30,
+            "description" : "Empleado.usu"
           },
           "Password" : {
             "type" : "string",
             "format" : "password",
             "minLength" : 1,
             "maxLength" : 128,
-            "writeOnly" : true
+            "writeOnly" : true,
+            "description" : "Empleado.clave"
           }
         }
       },
