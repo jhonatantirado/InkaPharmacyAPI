@@ -1303,6 +1303,12 @@
         "type" : "object",
         "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price" ],
         "properties" : {
+          "SalesOrderDetailId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.detalleVentaId",
+            "readOnly" : true
+          },
           "SalesOrderId" : {
             "type" : "integer",
             "format" : "int32",
