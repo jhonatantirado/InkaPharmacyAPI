@@ -98,12 +98,13 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`medicamento` (
 -- Table bd_farmacia.detalleVenta
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_farmacia`.`detalleVenta` (
+  `detalleVentaId` INT NOT NULL AUTO_INCREMENT,
   `nro_venta` INT NOT NULL,
   `cod_med` INT NOT NULL,
   `cantidad` INT NOT NULL,
   `precio` DECIMAL(19,4) NOT NULL,
   `estado` INT NULL,
-  PRIMARY KEY (`nro_venta`, `cod_med`),
+  PRIMARY KEY (`detalleVentaId`),
   CONSTRAINT `FK__detalleVe__cod_m__1FCDBCEB`
     FOREIGN KEY (`cod_med`)
     REFERENCES `bd_farmacia`.`medicamento` (`cod_med`)
@@ -157,11 +158,12 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`compra` (
 -- Table bd_farmacia.detalleCompra
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_farmacia`.`detalleCompra` (
+  `detalleCompraId` INT NOT NULL AUTO_INCREMENT,
   `cod_compra` INT NOT NULL,
   `cod_med` INT NOT NULL,
   `cantidad` INT NOT NULL,
   `costo` DECIMAL(19,4) NOT NULL,
-  PRIMARY KEY (`cod_compra`, `cod_med`),
+  PRIMARY KEY (`detalleCompraId`),
   CONSTRAINT `FK__detalleCo__cod_c__34C8D9D1`
     FOREIGN KEY (`cod_compra`)
     REFERENCES `bd_farmacia`.`compra` (`cod_compra`)
