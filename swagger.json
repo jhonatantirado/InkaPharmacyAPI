@@ -1200,7 +1200,7 @@
             "type" : "string",
             "format" : "password",
             "minLength" : 1,
-            "maxLength" : 30,
+            "maxLength" : 128,
             "writeOnly" : true
           }
         }
