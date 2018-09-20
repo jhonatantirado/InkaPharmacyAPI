@@ -1393,6 +1393,12 @@
         "type" : "object",
         "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Cost" ],
         "properties" : {
+          "PurchaseOrderDetailId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleCompra.detalleCompraId",
+            "readOnly" : true
+          },
           "PurchaseOrderId" : {
             "type" : "integer",
             "format" : "int32",
