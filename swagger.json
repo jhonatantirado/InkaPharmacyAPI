@@ -101,7 +101,9 @@
       "get" : {
         "tags" : [ "Customers" ],
         "summary" : "Lista de clientes",
-        "security" : [ null ],
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetCustomers",
         "description" : "Obtener lista paginada de clientes",
         "parameters" : [ {
