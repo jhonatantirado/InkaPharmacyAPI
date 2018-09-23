@@ -430,7 +430,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "lista de medicamentos",
             "content" : {
               "application/json" : {
@@ -483,7 +483,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "medicamento actualizado",
+            "description" : "medicamento creado",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -531,7 +531,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "detalles de medicamento",
             "content" : {
               "application/json" : {
@@ -578,7 +578,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "medicamento desactivado",
             "content" : {
               "application/json" : {
@@ -636,7 +636,7 @@
           }
         },
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "medicamento actualizado",
             "content" : {
               "application/json" : {
@@ -672,7 +672,7 @@
     "/api/Products/FindByName" : {
       "get" : {
         "tags" : [ "Products" ],
-        "summary" : "Buscar medicamento por numero de documento",
+        "summary" : "Buscar medicamento por nombre",
         "operationId" : "FindProductByName",
         "description" : "Buscar medicamento por nombre",
         "parameters" : [ {
@@ -683,7 +683,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "Detalles de medicamento",
             "content" : {
               "application/json" : {
@@ -747,7 +747,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "Detalles de medicamento",
             "content" : {
               "application/json" : {
@@ -1444,7 +1444,7 @@
           },
           "Currency" : {
             "type" : "string",
-            "description" : "Medicamento.moneda",
+            "description" : "DetalleCompra.moneda",
             "default" : "PEN",
             "minLength" : 3,
             "maxLength" : 3
