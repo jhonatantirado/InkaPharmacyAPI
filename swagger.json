@@ -1,3 +1,1527 @@
 {
-  "swagger" : "2.0"
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "SwaggerHub API Auto Mocking",
+    "url" : "https://virtserver.swaggerhub.com/jhonatan.tirado/InkaPharmacy/1.0.0"
+  } ],
+  "info" : {
+    "description" : "API para una aplicación web de farmacias en Angular 6, Java y Net Core",
+    "version" : "1.0.0",
+    "title" : "Inka Pharmacy API 1.0",
+    "contact" : {
+      "email" : "jhonatan.tirado@unmsm.edu.pe"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags" : [ {
+    "name" : "Customers",
+    "description" : "Mantenimiento de Clientes - NO SE HARÁ"
+  }, {
+    "name" : "Products",
+    "description" : "Mantenimiento de Medicamentos"
+  }, {
+    "name" : "Providers",
+    "description" : "Mantenimiento de Proveedores"
+  }, {
+    "name" : "Purchases",
+    "description" : "Compra de Medicamentos"
+  }, {
+    "name" : "Sales",
+    "description" : "Venta de Medicamentos"
+  }, {
+    "name" : "Security",
+    "description" : "Seguridad"
+  } ],
+  "paths" : {
+    "/api/Security/Login" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "Login",
+        "description" : "devolver datos de usuario logeado",
+        "operationId" : "Login",
+        "requestBody" : {
+          "description" : "Credenciales del usuario",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserCredentialsDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "cliente logeado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CustomerDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customers" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Lista de clientes",
+        "operationId" : "GetCustomers",
+        "description" : "Obtener lista paginada de clientes",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "default" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 100,
+            "default" : 10
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "lista de clientes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/CustomerDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Crear un cliente",
+        "operationId" : "CreateCustomer",
+        "description" : "Crear un cliente",
+        "requestBody" : {
+          "description" : "Cliente a crear",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CustomerDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "cliente creado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customers/{CustomerId}" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Consulta de datos de un cliente específico",
+        "operationId" : "GetCustomer",
+        "description" : "Detalles de un cliente específico",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "CustomerId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "detalles de cliente",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CustomerDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Desactivar un cliente",
+        "operationId" : "DeleteCustomer",
+        "description" : "Desactivar un cliente",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "CustomerId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "cliente desactivado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Actualizar un cliente",
+        "operationId" : "UpdateCustomer",
+        "description" : "Actualizar un cliente",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "CustomerId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Cliente a actualizar",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CustomerDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "cliente actualizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customers/FindByDocumentNumber" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Buscar cliente por numero de documento",
+        "operationId" : "FindCustomer",
+        "description" : "Buscar cliente por numero de documento",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "DocumentNumber",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Detalles de cliente",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CustomerDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Lista de medicamentos",
+        "operationId" : "GetProducts",
+        "description" : "Obtener lista paginada de medicamentos",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "default" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 100,
+            "default" : 10
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "lista de medicamentos",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProductDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Products" ],
+        "summary" : "Crear un medicamento",
+        "operationId" : "CreateProduct",
+        "description" : "Crear un medicamento",
+        "requestBody" : {
+          "description" : "medicamento a crear",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "medicamento creado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products/{ProductId}" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Consulta de datos de un medicamento específico",
+        "operationId" : "GetProduct",
+        "description" : "Detalles de un medicamento específico",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "ProductId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "detalles de medicamento",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Products" ],
+        "summary" : "Desactivar un medicamento",
+        "operationId" : "DeleteProduct",
+        "description" : "Desactivar un medicamento",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "ProductId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "medicamento desactivado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Products" ],
+        "summary" : "Actualizar un medicamento",
+        "operationId" : "UpdateProduct",
+        "description" : "Actualizar un medicamento",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "ProductId",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "medicamento a actualizar",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "medicamento actualizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseOKDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products/FindByName" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Buscar medicamento por nombre",
+        "operationId" : "FindProductByName",
+        "description" : "Buscar medicamento por nombre",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "ProductName",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Detalles de medicamento",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products/FindByCategory" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Buscar medicamentos por categoría",
+        "operationId" : "FindProductByCategory",
+        "description" : "Buscar medicamentos por categoría",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "CategoryName",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "default" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 10,
+            "default" : 10
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Lista paginada de medicamentos de una categoria",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProductDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Sales/Order" : {
+      "post" : {
+        "tags" : [ "Sales" ],
+        "summary" : "Venta de medicamentos a los clientes",
+        "description" : "vender medicamentos a los clientes",
+        "operationId" : "PlaceSalesOrder",
+        "requestBody" : {
+          "description" : "orden de venta",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SalesOrderDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "venta exitosa"
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get" : {
+        "tags" : [ "Sales" ],
+        "summary" : "Lista de ordenes de venta a los clientes",
+        "operationId" : "GetSalesOrdersList",
+        "description" : "Obtener lista paginada de ordenes de venta a los clientes",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "default" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 100,
+            "default" : 10
+          }
+        }, {
+          "in" : "query",
+          "name" : "DateFrom",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }, {
+          "in" : "query",
+          "name" : "DateTo",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "lista de ordenes de venta",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/SalesOrderDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Purchase/Order" : {
+      "post" : {
+        "tags" : [ "Purchases" ],
+        "summary" : "Compra de medicamentos de los proveedores",
+        "description" : "comprar medicamentos de los proveedores",
+        "operationId" : "RegisterPurchaseOrder",
+        "requestBody" : {
+          "description" : "Orden de compra",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseOrderDTO"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "compra exitosa"
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Acceso no autorizado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get" : {
+        "tags" : [ "Purchases" ],
+        "summary" : "Lista de ordenes de compra a los proveedores",
+        "operationId" : "GetPurchaseOrdersList",
+        "description" : "Obtener lista paginada de ordenes de compra a los proveedores",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "offset",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "default" : 0
+          }
+        }, {
+          "in" : "query",
+          "name" : "limit",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "minimum" : 0,
+            "maximum" : 100,
+            "default" : 10
+          }
+        }, {
+          "in" : "query",
+          "name" : "DateFrom",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }, {
+          "in" : "query",
+          "name" : "DateTo",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "lista de ordenes de compra",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/PurchaseOrderDTO"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ProductDTO" : {
+        "type" : "object",
+        "required" : [ "Name", "Price", "Stock", "Currency" ],
+        "properties" : {
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.cod_med",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
+          "Name" : {
+            "type" : "string",
+            "description" : "Medicamento.nombre",
+            "minLength" : 1,
+            "maxLength" : 30
+          },
+          "Price" : {
+            "type" : "number",
+            "format" : "float",
+            "description" : "Medicamento.precio",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 3000
+          },
+          "Currency" : {
+            "type" : "string",
+            "description" : "Medicamento.moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
+          },
+          "Stock" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.stock",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "CategoryId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.cod_cat",
+            "default" : 0,
+            "minimum" : 0,
+            "nullable" : true
+          },
+          "LotNumber" : {
+            "type" : "string",
+            "description" : "Medicamento.NroLote",
+            "minLength" : 1,
+            "maxLength" : 40,
+            "nullable" : true
+          },
+          "SanitaryRegistrationNumber" : {
+            "type" : "string",
+            "description" : "Medicamento.RegSanitario",
+            "minLength" : 1,
+            "maxLength" : 40,
+            "nullable" : true
+          },
+          "RegistrationDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Medicamento.FechRegistro, formato yyyy-mm-dd, RFC 3339, section 5.6",
+            "example" : "2018-07-21"
+          },
+          "ExpirationDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Medicamento.FechVencimiento, formato yyyy-mm-dd, RFC 3339, section 5.6",
+            "example" : "2020-07-21"
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          },
+          "StockStatus" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Medicamento.estado_stock, 1 con stock, 0 sin stock",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 1
+          }
+        }
+      },
+      "CustomerDTO" : {
+        "type" : "object",
+        "required" : [ "FirstName", "LastName1" ],
+        "properties" : {
+          "CustomerId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Cliente.cod_clt",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
+          "FirstName" : {
+            "type" : "string",
+            "description" : "Cliente.nombre",
+            "minLength" : 1,
+            "maxLength" : 15
+          },
+          "LastName1" : {
+            "type" : "string",
+            "description" : "Cliente.paterno",
+            "minLength" : 1,
+            "maxLength" : 20
+          },
+          "LastName2" : {
+            "type" : "string",
+            "description" : "Cliente.materno",
+            "minLength" : 1,
+            "maxLength" : 20,
+            "nullable" : true
+          },
+          "Address" : {
+            "type" : "string",
+            "description" : "Cliente.direccion",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Telephone" : {
+            "type" : "string",
+            "description" : "Cliente.telefono",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Email" : {
+            "type" : "string",
+            "description" : "Cliente.correo",
+            "minLength" : 1,
+            "maxLength" : 40,
+            "nullable" : true
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Cliente.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          }
+        }
+      },
+      "UserCredentialsDTO" : {
+        "type" : "object",
+        "properties" : {
+          "Username" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "description" : "Empleado.usu"
+          },
+          "Password" : {
+            "type" : "string",
+            "format" : "password",
+            "minLength" : 1,
+            "maxLength" : 128,
+            "writeOnly" : true,
+            "description" : "Empleado.clave"
+          }
+        }
+      },
+      "ResponseOKDTO" : {
+        "type" : "object",
+        "properties" : {
+          "httpStatus" : {
+            "type" : "integer",
+            "default" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "default" : "Successful!",
+            "minLength" : 0,
+            "maxLength" : 400
+          }
+        }
+      },
+      "ResponseErrorDTO" : {
+        "type" : "object",
+        "properties" : {
+          "httpStatus" : {
+            "type" : "integer",
+            "default" : 400
+          },
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ApplicationMessage"
+            },
+            "minItems" : 1,
+            "maxItems" : 100
+          }
+        }
+      },
+      "ApplicationMessage" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string",
+            "description" : "error message",
+            "minLength" : 0,
+            "maxLength" : 400
+          }
+        }
+      },
+      "SalesOrderDTO" : {
+        "type" : "object",
+        "required" : [ "SalesOrderId", "SaleDate", "CustomerId", "EmployeeId", "SalesOrderDetails" ],
+        "properties" : {
+          "SalesOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.nro_venta",
+            "readOnly" : true
+          },
+          "SaleDate" : {
+            "type" : "string",
+            "format" : "date-time",
+            "description" : "Venta.fecha, formato yyyy-mm-ddThh:mm:ssZ, RFC 3339, section 5.6",
+            "example" : "2017-07-21T17:32:28Z"
+          },
+          "CustomerId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.cod_clt->Cliente.cod_clt",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "EmployeeId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.cod_emp->Empleado.cod_emp",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Venta.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          },
+          "SalesOrderDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SalesOrderDetailDTO"
+            },
+            "uniqueItems" : true,
+            "minItems" : 1,
+            "maxItems" : 100
+          }
+        }
+      },
+      "SalesOrderDetailDTO" : {
+        "type" : "object",
+        "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price", "Currency" ],
+        "properties" : {
+          "SalesOrderDetailId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.detalleVentaId",
+            "readOnly" : true
+          },
+          "SalesOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.nro_venta->Venta.nro_venta",
+            "readOnly" : true
+          },
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cod_med->Medicamento.cod_med",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.cantidad",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 100
+          },
+          "Currency" : {
+            "type" : "string",
+            "description" : "DetalleVenta.moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
+          },
+          "Price" : {
+            "type" : "number",
+            "format" : "float",
+            "description" : "DetalleVenta.precio",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 3000
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleVenta.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          }
+        }
+      },
+      "PurchaseOrderDTO" : {
+        "type" : "object",
+        "required" : [ "PurchaseOrderId", "PurchaseDate", "ProviderId", "EmployeeId", "PurchaseOrderDetails" ],
+        "properties" : {
+          "PurchaseOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Compra.cod_compra",
+            "readOnly" : true
+          },
+          "PurchaseDate" : {
+            "type" : "string",
+            "format" : "date-time",
+            "description" : "Compra.fecha, formato yyyy-mm-dd, RFC 3339, section 5.6",
+            "example" : "2017-07-21T17:32:28Z"
+          },
+          "ProviderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Compra.cod_provee->Proveedor.cod_provee",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "EmployeeId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Compra.cod_emp->Empleado.cod_emp",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "PurchaseOrderDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PurchaseOrderDetailDTO"
+            },
+            "uniqueItems" : true,
+            "minItems" : 1,
+            "maxItems" : 100
+          }
+        }
+      },
+      "PurchaseOrderDetailDTO" : {
+        "type" : "object",
+        "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Cost", "Currency" ],
+        "properties" : {
+          "PurchaseOrderDetailId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleCompra.detalleCompraId",
+            "readOnly" : true
+          },
+          "PurchaseOrderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleCompra.cod_compra->Compra.cod_compra",
+            "readOnly" : true
+          },
+          "ProductId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleCompra.cod_med->Medicamento.cod_med",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "DetalleCompra.cantidad",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 100
+          },
+          "Cost" : {
+            "type" : "number",
+            "format" : "float",
+            "description" : "DetalleCompra.costo",
+            "default" : 0,
+            "minimum" : 0,
+            "maximum" : 3000
+          },
+          "Currency" : {
+            "type" : "string",
+            "description" : "DetalleCompra.moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
+          }
+        }
+      },
+      "ProviderDTO" : {
+        "type" : "object",
+        "required" : [ "Name", "IdentificationNumber" ],
+        "properties" : {
+          "ProviderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "proveedor.cod_provee",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
+          "Name" : {
+            "type" : "string",
+            "description" : "proveedor.nombre",
+            "minLength" : 1,
+            "maxLength" : 20
+          },
+          "IdentificationNumber" : {
+            "type" : "string",
+            "description" : "proveedor.nit",
+            "minLength" : 1,
+            "maxLength" : 30
+          },
+          "Address" : {
+            "type" : "string",
+            "description" : "proveedor.direccion",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Telephone" : {
+            "type" : "string",
+            "description" : "proveedor.telefono",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "LaboratoryId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "proveedor.cod_lab",
+            "default" : 0,
+            "minimum" : 0
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "proveedor.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          }
+        }
+      }
+    }
+  }
 }
