@@ -74,16 +74,6 @@
               }
             }
           },
-          "401" : {
-            "description" : "Acceso no autorizado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
