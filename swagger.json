@@ -51,7 +51,7 @@
           }
         },
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "cliente logeado",
             "content" : {
               "application/json" : {
