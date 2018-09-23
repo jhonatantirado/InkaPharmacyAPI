@@ -1097,6 +1097,9 @@
       "get" : {
         "tags" : [ "Providers" ],
         "summary" : "Buscar proveedor por numero de documento",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "FindProviderByDocumentNumber",
         "description" : "Buscar proveedor por numero de documento",
         "parameters" : [ {
@@ -1144,6 +1147,9 @@
       "get" : {
         "tags" : [ "Providers" ],
         "summary" : "Buscar proveedor por nombre",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "FindProviderByName",
         "description" : "Buscar proveedor por nombre",
         "parameters" : [ {
