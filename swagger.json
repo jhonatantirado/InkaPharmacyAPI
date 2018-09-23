@@ -1100,6 +1100,53 @@
           }
         }
       }
+    },
+    "/api/Providers/FindByName" : {
+      "get" : {
+        "tags" : [ "Providers" ],
+        "summary" : "Buscar proveedor por nombre",
+        "operationId" : "FindProviderByName",
+        "description" : "Buscar proveedor por nombre",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "Name",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Detalles de proveedor",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProviderDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
