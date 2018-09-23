@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`medicamento` (
   `cod_med` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(30) NOT NULL,
   `precio` DECIMAL(19,4) NOT NULL,
+  `moneda` VARCHAR(3) NOT NULL,
   `stock` INT NOT NULL,
   `cod_cat` INT NULL,
   `NroLote` VARCHAR(40) NULL,
@@ -103,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`detalleVenta` (
   `cod_med` INT NOT NULL,
   `cantidad` INT NOT NULL,
   `precio` DECIMAL(19,4) NOT NULL,
+  `moneda` VARCHAR(3) NOT NULL,
   `estado` INT NULL,
   PRIMARY KEY (`detalleVentaId`),
   CONSTRAINT `FK__detalleVe__cod_m__1FCDBCEB`
@@ -163,6 +165,7 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`detalleCompra` (
   `cod_med` INT NOT NULL,
   `cantidad` INT NOT NULL,
   `costo` DECIMAL(19,4) NOT NULL,
+  `moneda` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`detalleCompraId`),
   CONSTRAINT `FK__detalleCo__cod_c__34C8D9D1`
     FOREIGN KEY (`cod_compra`)
@@ -182,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`detalleAjuste` (
   `cod_ajt` INT NOT NULL,
   `cod_med` INT NOT NULL,
   `cantidad` INT NOT NULL,
+  `moneda` VARCHAR(3) NOT NULL,
   PRIMARY KEY (`cod_ajt`, `cod_med`),
   CONSTRAINT `FK__detalleAj__cod_a__3A81B327`
     FOREIGN KEY (`cod_ajt`)
