@@ -1339,7 +1339,7 @@
           },
           "Currency" : {
             "type" : "string",
-            "description" : "Medicamento.moneda",
+            "description" : "DetalleVenta.moneda",
             "default" : "PEN",
             "minLength" : 3,
             "maxLength" : 3
@@ -1405,7 +1405,7 @@
       },
       "PurchaseOrderDetailDTO" : {
         "type" : "object",
-        "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Cost" ],
+        "required" : [ "PurchaseOrderId", "ProductId", "Quantity", "Cost", "Currency" ],
         "properties" : {
           "PurchaseOrderDetailId" : {
             "type" : "integer",
