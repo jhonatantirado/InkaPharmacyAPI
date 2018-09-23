@@ -119,7 +119,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "lista de clientes",
             "content" : {
               "application/json" : {
@@ -172,7 +172,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "cliente actualizado",
+            "description" : "cliente creado",
             "content" : {
               "application/json" : {
                 "schema" : {
