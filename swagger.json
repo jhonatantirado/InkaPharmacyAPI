@@ -884,7 +884,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "lista de ordenes de venta",
             "content" : {
               "application/json" : {
@@ -1015,7 +1015,7 @@
           }
         } ],
         "responses" : {
-          "201" : {
+          "200" : {
             "description" : "lista de ordenes de compra",
             "content" : {
               "application/json" : {
