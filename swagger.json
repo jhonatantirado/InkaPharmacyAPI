@@ -1043,7 +1043,7 @@
     "schemas" : {
       "ProductDTO" : {
         "type" : "object",
-        "required" : [ "Name", "Price", "Stock" ],
+        "required" : [ "Name", "Price", "Stock", "Currency" ],
         "properties" : {
           "ProductId" : {
             "type" : "integer",
@@ -1071,8 +1071,8 @@
             "type" : "string",
             "description" : "Medicamento.moneda",
             "default" : "PEN",
-            "minLength" : 1,
-            "maxLength" : 30
+            "minLength" : 3,
+            "maxLength" : 3
           },
           "Stock" : {
             "type" : "integer",
