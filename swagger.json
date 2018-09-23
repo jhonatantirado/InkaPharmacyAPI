@@ -1058,7 +1058,7 @@
       "get" : {
         "tags" : [ "Providers" ],
         "summary" : "Buscar proveedor por numero de documento",
-        "operationId" : "FindProvider",
+        "operationId" : "FindProviderByDocumentNumber",
         "description" : "Buscar proveedor por numero de documento",
         "parameters" : [ {
           "in" : "query",
