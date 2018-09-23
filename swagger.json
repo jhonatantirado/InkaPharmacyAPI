@@ -719,9 +719,9 @@
     "/api/Products/FindByCategory" : {
       "get" : {
         "tags" : [ "Products" ],
-        "summary" : "Buscar medicamento por categoría",
+        "summary" : "Buscar medicamentos por categoría",
         "operationId" : "FindProductByCategory",
-        "description" : "Buscar medicamento por categoría",
+        "description" : "Buscar medicamentos por categoría",
         "parameters" : [ {
           "in" : "query",
           "name" : "CategoryName",
@@ -748,11 +748,14 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Detalles de medicamento",
+            "description" : "Lista paginada de medicamentos de una categoria",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ProductDTO"
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProductDTO"
+                  }
                 }
               }
             }
