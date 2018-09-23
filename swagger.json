@@ -1308,7 +1308,7 @@
       },
       "SalesOrderDetailDTO" : {
         "type" : "object",
-        "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price" ],
+        "required" : [ "SalesOrderId", "ProductId", "Quantity", "Price", "Currency" ],
         "properties" : {
           "SalesOrderDetailId" : {
             "type" : "integer",
@@ -1336,6 +1336,13 @@
             "default" : 0,
             "minimum" : 0,
             "maximum" : 100
+          },
+          "Currency" : {
+            "type" : "string",
+            "description" : "Medicamento.moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
           },
           "Price" : {
             "type" : "number",
@@ -1434,6 +1441,13 @@
             "default" : 0,
             "minimum" : 0,
             "maximum" : 3000
+          },
+          "Currency" : {
+            "type" : "string",
+            "description" : "Medicamento.moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
           }
         }
       }
