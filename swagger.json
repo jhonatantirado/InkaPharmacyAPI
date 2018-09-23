@@ -1466,18 +1466,6 @@
             "maxLength" : 3
           }
         }
-      },
-      "Provider" : {
-        "type" : "object",
-        "required" : [ "Name" ],
-        "properties" : {
-          "ProviderId" : {
-            "type" : "integer"
-          },
-          "Name" : {
-            "type" : "string"
-          }
-        }
       }
     }
   }
