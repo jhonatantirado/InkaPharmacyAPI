@@ -205,6 +205,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -257,6 +260,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -306,6 +312,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -368,6 +377,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -417,6 +429,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -484,6 +499,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -535,6 +553,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -588,6 +609,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -637,6 +661,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -699,6 +726,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -748,6 +778,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -821,6 +854,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -869,14 +905,7 @@
             }
           },
           "401" : {
-            "description" : "Acceso no autorizado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -958,6 +987,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -1006,14 +1038,7 @@
             }
           },
           "401" : {
-            "description" : "Acceso no autorizado",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseErrorDTO"
-                }
-              }
-            }
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
@@ -1095,6 +1120,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -1145,6 +1173,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
@@ -1194,6 +1225,9 @@
                 }
               }
             }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
           },
           "500" : {
             "description" : "Error no controlado",
