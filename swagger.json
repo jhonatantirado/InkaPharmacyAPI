@@ -835,6 +835,9 @@
       "post" : {
         "tags" : [ "Sales" ],
         "summary" : "Venta de medicamentos a los clientes",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "description" : "vender medicamentos a los clientes",
         "operationId" : "PlaceSalesOrder",
         "requestBody" : {
@@ -887,6 +890,9 @@
       "get" : {
         "tags" : [ "Sales" ],
         "summary" : "Lista de ordenes de venta a los clientes",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetSalesOrdersList",
         "description" : "Obtener lista paginada de ordenes de venta a los clientes",
         "parameters" : [ {
@@ -966,6 +972,9 @@
       "post" : {
         "tags" : [ "Purchases" ],
         "summary" : "Compra de medicamentos de los proveedores",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "description" : "comprar medicamentos de los proveedores",
         "operationId" : "RegisterPurchaseOrder",
         "requestBody" : {
@@ -1018,6 +1027,9 @@
       "get" : {
         "tags" : [ "Purchases" ],
         "summary" : "Lista de ordenes de compra a los proveedores",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetPurchaseOrdersList",
         "description" : "Obtener lista paginada de ordenes de compra a los proveedores",
         "parameters" : [ {
