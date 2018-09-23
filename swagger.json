@@ -150,6 +150,9 @@
               }
             }
           },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
           "500" : {
             "description" : "Error no controlado",
             "content" : {
