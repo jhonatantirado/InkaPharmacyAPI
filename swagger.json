@@ -853,7 +853,8 @@
           "schema" : {
             "type" : "integer",
             "format" : "int32",
-            "minimum" : 0
+            "minimum" : 0,
+            "default" : 0
           }
         }, {
           "in" : "query",
@@ -862,7 +863,8 @@
             "type" : "integer",
             "format" : "int32",
             "minimum" : 0,
-            "maximum" : 100
+            "maximum" : 100,
+            "default" : 10
           }
         }, {
           "in" : "query",
@@ -982,7 +984,8 @@
           "schema" : {
             "type" : "integer",
             "format" : "int32",
-            "minimum" : 0
+            "minimum" : 0,
+            "default" : 0
           }
         }, {
           "in" : "query",
@@ -991,7 +994,8 @@
             "type" : "integer",
             "format" : "int32",
             "minimum" : 0,
-            "maximum" : 100
+            "maximum" : 100,
+            "default" : 10
           }
         }, {
           "in" : "query",
