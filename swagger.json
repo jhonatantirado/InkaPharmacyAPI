@@ -1053,6 +1053,53 @@
           }
         }
       }
+    },
+    "/api/Providers/FindByDocumentNumber" : {
+      "get" : {
+        "tags" : [ "Providers" ],
+        "summary" : "Buscar proveedor por numero de documento",
+        "operationId" : "FindProvider",
+        "description" : "Buscar proveedor por numero de documento",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "DocumentNumber",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Detalles de proveedor",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProviderDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
