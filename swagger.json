@@ -165,6 +165,9 @@
       "post" : {
         "tags" : [ "Customers" ],
         "summary" : "Crear un cliente",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "CreateCustomer",
         "description" : "Crear un cliente",
         "requestBody" : {
@@ -216,6 +219,9 @@
       "get" : {
         "tags" : [ "Customers" ],
         "summary" : "Consulta de datos de un cliente específico",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetCustomer",
         "description" : "Detalles de un cliente específico",
         "parameters" : [ {
@@ -263,6 +269,9 @@
       "delete" : {
         "tags" : [ "Customers" ],
         "summary" : "Desactivar un cliente",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "DeleteCustomer",
         "description" : "Desactivar un cliente",
         "parameters" : [ {
@@ -310,6 +319,9 @@
       "put" : {
         "tags" : [ "Customers" ],
         "summary" : "Actualizar un cliente",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "UpdateCustomer",
         "description" : "Actualizar un cliente",
         "parameters" : [ {
@@ -370,6 +382,9 @@
       "get" : {
         "tags" : [ "Customers" ],
         "summary" : "Buscar cliente por numero de documento",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "FindCustomer",
         "description" : "Buscar cliente por numero de documento",
         "parameters" : [ {
@@ -417,6 +432,9 @@
       "get" : {
         "tags" : [ "Products" ],
         "summary" : "Lista de medicamentos",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetProducts",
         "description" : "Obtener lista paginada de medicamentos",
         "parameters" : [ {
@@ -478,6 +496,9 @@
       "post" : {
         "tags" : [ "Products" ],
         "summary" : "Crear un medicamento",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "CreateProduct",
         "description" : "Crear un medicamento",
         "requestBody" : {
@@ -529,6 +550,9 @@
       "get" : {
         "tags" : [ "Products" ],
         "summary" : "Consulta de datos de un medicamento específico",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "GetProduct",
         "description" : "Detalles de un medicamento específico",
         "parameters" : [ {
@@ -576,6 +600,9 @@
       "delete" : {
         "tags" : [ "Products" ],
         "summary" : "Desactivar un medicamento",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "DeleteProduct",
         "description" : "Desactivar un medicamento",
         "parameters" : [ {
@@ -623,6 +650,9 @@
       "put" : {
         "tags" : [ "Products" ],
         "summary" : "Actualizar un medicamento",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "UpdateProduct",
         "description" : "Actualizar un medicamento",
         "parameters" : [ {
@@ -683,6 +713,9 @@
       "get" : {
         "tags" : [ "Products" ],
         "summary" : "Buscar medicamento por nombre",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "FindProductByName",
         "description" : "Buscar medicamento por nombre",
         "parameters" : [ {
@@ -730,6 +763,9 @@
       "get" : {
         "tags" : [ "Products" ],
         "summary" : "Buscar medicamentos por categoría",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
         "operationId" : "FindProductByCategory",
         "description" : "Buscar medicamentos por categoría",
         "parameters" : [ {
@@ -1623,7 +1659,8 @@
     "securitySchemes" : {
       "BearerAuth" : {
         "type" : "http",
-        "scheme" : "bearer"
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
       }
     }
   }
