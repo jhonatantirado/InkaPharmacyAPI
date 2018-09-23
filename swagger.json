@@ -1067,6 +1067,13 @@
             "minimum" : 0,
             "maximum" : 3000
           },
+          "Currency" : {
+            "type" : "string",
+            "description" : "Medicamento.moneda",
+            "default" : "PEN",
+            "minLength" : 1,
+            "maxLength" : 30
+          },
           "Stock" : {
             "type" : "integer",
             "format" : "int32",
