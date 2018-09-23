@@ -18,7 +18,7 @@
   },
   "tags" : [ {
     "name" : "Customers",
-    "description" : "Mantenimiento de Clientes - NO SE HARÁ"
+    "description" : "Mantenimiento de Clientes"
   }, {
     "name" : "Products",
     "description" : "Mantenimiento de Medicamentos"
