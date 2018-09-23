@@ -23,6 +23,9 @@
     "name" : "Products",
     "description" : "Mantenimiento de Medicamentos"
   }, {
+    "name" : "Providers",
+    "description" : "Mantenimiento de Proveedores"
+  }, {
     "name" : "Purchases",
     "description" : "Compra de Medicamentos"
   }, {
