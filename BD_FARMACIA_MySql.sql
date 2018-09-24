@@ -5,15 +5,13 @@
 -- Created: Fri Sep  7 11:27:34 2018
 -- Workbench Version: 8.0.12
 -- ----------------------------------------------------------------------------
-
-SET FOREIGN_KEY_CHECKS = 0;
-
 -- ----------------------------------------------------------------------------
 -- Schema bd_farmacia
 -- ----------------------------------------------------------------------------
 DROP SCHEMA IF EXISTS `bd_farmacia` ;
 CREATE SCHEMA IF NOT EXISTS `bd_farmacia` ;
 
+SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------------------------------------------------------
 -- Table bd_farmacia.categoria
 -- ----------------------------------------------------------------------------
@@ -126,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `bd_farmacia`.`proveedor` (
   `nombre` VARCHAR(20) NOT NULL,
   `nit` VARCHAR(30) NOT NULL,
   `direccion` VARCHAR(30) NULL,
-  `telefono` INT NOT NULL,
+  `telefono` VARCHAR(30) NULL,
   `cod_lab` INT NOT NULL,
   `estado` INT NULL,
   PRIMARY KEY (`cod_provee`),
