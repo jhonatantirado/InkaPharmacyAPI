@@ -1379,6 +1379,13 @@
             "maxLength" : 40,
             "nullable" : true
           },
+          "DocumentNumber" : {
+            "type" : "string",
+            "description" : "Cliente.documento",
+            "minLength" : 1,
+            "maxLength" : 20,
+            "nullable" : true
+          },
           "Status" : {
             "type" : "integer",
             "format" : "int32",
