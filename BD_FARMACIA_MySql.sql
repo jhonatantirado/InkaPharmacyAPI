@@ -13,53 +13,53 @@ CREATE SCHEMA IF NOT EXISTS `inkapharmacy` ;
 
 SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.categoria
+-- Table inkapharmacy.category
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`categoria` (
-  `cod_cat` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) NOT NULL,
-  PRIMARY KEY (`cod_cat`));
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`category` (
+  `category_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`category_id`));
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.empleado
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`empleado` (
-  `ci` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) NOT NULL,
-  `paterno` VARCHAR(30) NOT NULL,
-  `materno` VARCHAR(30) NULL,
-  `direccion` VARCHAR(30) NOT NULL,
-  `telefono` VARCHAR(30) NULL,
-  `id_perfil` INT NULL,
-  `id_tienda` INT NULL,
-  `usu` VARCHAR(30) NULL,
-  `clave` VARCHAR(128) NULL,
-  `correo` VARCHAR(40) NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`ci`),
-  CONSTRAINT `FK_empleado_perfil`
-    FOREIGN KEY (`id_perfil`)
-    REFERENCES `inkapharmacy`.`perfil` (`id_perfil`)
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`employee` (
+  `employee_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NOT NULL,
+  `last_name1` VARCHAR(30) NOT NULL,
+  `last_name2` VARCHAR(30) NULL,
+  `address` VARCHAR(30) NOT NULL,
+  `telephone` VARCHAR(30) NULL,
+  `role_id` INT NULL,
+  `store_id` INT NULL,
+  `user_name` VARCHAR(30) NULL,
+  `password` VARCHAR(128) NULL,
+  `email` VARCHAR(40) NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`employee_id`),
+  CONSTRAINT `FK_employee_role`
+    FOREIGN KEY (`role_id`)
+    REFERENCES `inkapharmacy`.`role` (`role_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_empleado_tienda`
-    FOREIGN KEY (`id_tienda`)
-    REFERENCES `inkapharmacy`.`tienda` (`id_tienda`)
+  CONSTRAINT `FK_employee_store`
+    FOREIGN KEY (`store_id`)
+    REFERENCES `inkapharmacy`.`store` (`store_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.laboratorio
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`laboratorio` (
-  `cod_lab` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) NOT NULL,
-  `direccion` VARCHAR(30) NOT NULL,
-  `telefono` CHAR(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`laboratory` (
+  `laboratory_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20) NOT NULL,
+  `address` VARCHAR(30) NOT NULL,
+  `telephone` CHAR(12) NOT NULL,
   `email` VARCHAR(40) NULL,
   `web` VARCHAR(200) NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`cod_lab`));
+  `status` INT NULL,
+  PRIMARY KEY (`laboratory_id`));
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.ajuste
@@ -67,112 +67,112 @@ CREATE TABLE IF NOT EXISTS `inkapharmacy`.`laboratorio` (
 CREATE TABLE IF NOT EXISTS `inkapharmacy`.`ajuste` (
   `cod_ajt` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATETIME NOT NULL,
-  `observacion` VARCHAR(200) NOT NULL,
+  `remarks` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`cod_ajt`));
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.medicamento
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`medicamento` (
-  `cod_med` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) NOT NULL,
-  `precio` DECIMAL(19,4) NOT NULL,
-  `moneda` VARCHAR(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`product` (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NOT NULL,
+  `price` DECIMAL(19,4) NOT NULL,
+  `currency` VARCHAR(3) NOT NULL,
   `stock` INT NOT NULL,
-  `cod_cat` INT NULL,
-  `NroLote` VARCHAR(40) NULL,
-  `RegSanitario` VARCHAR(40) NULL,
-  `FechRegistro` DATETIME(6) NULL,
-  `FechVencimiento` DATETIME(6) NULL,
-  `estado` INT NULL,
-  `estado_stock` INT NULL,
-  PRIMARY KEY (`cod_med`),
+  `category_id` INT NULL,
+  `lot_number` VARCHAR(40) NULL,
+  `sanitary_registration_number` VARCHAR(40) NULL,
+  `registration_date` DATETIME(6) NULL,
+  `expiration_date` DATETIME(6) NULL,
+  `status` INT NULL,
+  `stock_status` INT NULL,
+  PRIMARY KEY (`product_id`),
   CONSTRAINT `FK__medicamen__cod_c__1A14E395`
-    FOREIGN KEY (`cod_cat`)
-    REFERENCES `inkapharmacy`.`categoria` (`cod_cat`)
+    FOREIGN KEY (`category_id`)
+    REFERENCES `inkapharmacy`.`category` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.detalleVenta
+-- Table inkapharmacy.sales_detail
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleVenta` (
-  `detalleVentaId` INT NOT NULL AUTO_INCREMENT,
-  `nro_venta` INT NOT NULL,
-  `cod_med` INT NOT NULL,
-  `cantidad` INT NOT NULL,
-  `precio` DECIMAL(19,4) NOT NULL,
-  `moneda` VARCHAR(3) NOT NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`detalleVentaId`),
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`sales_detail` (
+  `sales_detail_id` INT NOT NULL AUTO_INCREMENT,
+  `sale_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `price` DECIMAL(19,4) NOT NULL,
+  `currency` VARCHAR(3) NOT NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`sales_detail_id`),
   CONSTRAINT `FK__detalleVe__cod_m__1FCDBCEB`
-    FOREIGN KEY (`cod_med`)
-    REFERENCES `inkapharmacy`.`medicamento` (`cod_med`)
+    FOREIGN KEY (`product_id`)
+    REFERENCES `inkapharmacy`.`product` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK__detalleVe__nro_v__1ED998B2`
-    FOREIGN KEY (`nro_venta`)
-    REFERENCES `inkapharmacy`.`venta` (`nro_venta`)
+    FOREIGN KEY (`sale_id`)
+    REFERENCES `inkapharmacy`.`sale` (`sale_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.proveedor
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`proveedor` (
-  `cod_provee` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) NOT NULL,
-  `nit` VARCHAR(30) NOT NULL,
-  `direccion` VARCHAR(30) NULL,
-  `telefono` VARCHAR(30) NULL,
-  `cod_lab` INT NOT NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`cod_provee`),
-  CONSTRAINT `FK__proveedor__cod_l__24927208`
-    FOREIGN KEY (`cod_lab`)
-    REFERENCES `inkapharmacy`.`laboratorio` (`cod_lab`)
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`provider` (
+  `provider_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20) NOT NULL,
+  `document_number` VARCHAR(30) NOT NULL,
+  `address` VARCHAR(30) NULL,
+  `telephone` VARCHAR(30) NULL,
+  `laboratory_id` INT NOT NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`provider_id`),
+  CONSTRAINT `FK__provider__cod_l__24927208`
+    FOREIGN KEY (`laboratory_id`)
+    REFERENCES `inkapharmacy`.`laboratory` (`laboratory_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.compra
+-- Table inkapharmacy.purchase
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`compra` (
-  `cod_compra` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATETIME NOT NULL,
-  `cod_provee` INT NOT NULL,
-  `cod_emp` INT NOT NULL,
-  PRIMARY KEY (`cod_compra`),
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`purchase` (
+  `purchase_id` INT NOT NULL AUTO_INCREMENT,
+  `purchase_date` DATETIME NOT NULL,
+  `provider_id` INT NOT NULL,
+  `employee_id` INT NOT NULL,
+  PRIMARY KEY (`purchase_id`),
   CONSTRAINT `FK__compra__cod_emp__300424B4`
-    FOREIGN KEY (`cod_emp`)
-    REFERENCES `inkapharmacy`.`empleado` (`ci`)
+    FOREIGN KEY (`employee_id`)
+    REFERENCES `inkapharmacy`.`employee` (`employee_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK__compra__cod_prov__2F10007B`
-    FOREIGN KEY (`cod_provee`)
-    REFERENCES `inkapharmacy`.`proveedor` (`cod_provee`)
+    FOREIGN KEY (`provider_id`)
+    REFERENCES `inkapharmacy`.`provider` (`provider_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.detalleCompra
+-- Table inkapharmacy.purchase_detail
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleCompra` (
-  `detalleCompraId` INT NOT NULL AUTO_INCREMENT,
-  `cod_compra` INT NOT NULL,
-  `cod_med` INT NOT NULL,
-  `cantidad` INT NOT NULL,
-  `costo` DECIMAL(19,4) NOT NULL,
-  `moneda` VARCHAR(3) NOT NULL,
-  PRIMARY KEY (`detalleCompraId`),
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`purchase_detail` (
+  `purchase_detail_id` INT NOT NULL AUTO_INCREMENT,
+  `purchase_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `cost` DECIMAL(19,4) NOT NULL,
+  `currency` VARCHAR(3) NOT NULL,
+  PRIMARY KEY (`purchase_detail_id`),
   CONSTRAINT `FK__detalleCo__cod_c__34C8D9D1`
-    FOREIGN KEY (`cod_compra`)
-    REFERENCES `inkapharmacy`.`compra` (`cod_compra`)
+    FOREIGN KEY (`purchase_id`)
+    REFERENCES `inkapharmacy`.`purchase` (`purchase_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK__detalleCo__cod_m__35BCFE0A`
-    FOREIGN KEY (`cod_med`)
-    REFERENCES `inkapharmacy`.`medicamento` (`cod_med`)
+    FOREIGN KEY (`product_id`)
+    REFERENCES `inkapharmacy`.`product` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -181,18 +181,18 @@ CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleCompra` (
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleAjuste` (
   `cod_ajt` INT NOT NULL,
-  `cod_med` INT NOT NULL,
-  `cantidad` INT NOT NULL,
-  `moneda` VARCHAR(3) NOT NULL,
-  PRIMARY KEY (`cod_ajt`, `cod_med`),
+  `product_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `currency` VARCHAR(3) NOT NULL,
+  PRIMARY KEY (`cod_ajt`, `product_id`),
   CONSTRAINT `FK__detalleAj__cod_a__3A81B327`
     FOREIGN KEY (`cod_ajt`)
     REFERENCES `inkapharmacy`.`ajuste` (`cod_ajt`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK__detalleAj__cod_m__3B75D760`
-    FOREIGN KEY (`cod_med`)
-    REFERENCES `inkapharmacy`.`medicamento` (`cod_med`)
+    FOREIGN KEY (`product_id`)
+    REFERENCES `inkapharmacy`.`product` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -200,17 +200,17 @@ CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleAjuste` (
 -- Table inkapharmacy.ubicacion
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inkapharmacy`.`ubicacion` (
-  `cod_med` INT NOT NULL,
-  `cod_lab` INT NOT NULL,
-  PRIMARY KEY (`cod_med`, `cod_lab`),
+  `product_id` INT NOT NULL,
+  `laboratory_id` INT NOT NULL,
+  PRIMARY KEY (`product_id`, `laboratory_id`),
   CONSTRAINT `FK__ubicacion__cod_m__403A8C7D`
-    FOREIGN KEY (`cod_med`)
-    REFERENCES `inkapharmacy`.`medicamento` (`cod_med`)
+    FOREIGN KEY (`product_id`)
+    REFERENCES `inkapharmacy`.`product` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK__ubicacion__cod_l__412EB0B6`
-    FOREIGN KEY (`cod_lab`)
-    REFERENCES `inkapharmacy`.`laboratorio` (`cod_lab`)
+    FOREIGN KEY (`laboratory_id`)
+    REFERENCES `inkapharmacy`.`laboratory` (`laboratory_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -227,82 +227,82 @@ CREATE TABLE IF NOT EXISTS `inkapharmacy`.`sysdiagrams` (
   UNIQUE INDEX `UK_principal_name` (`principal_id` ASC, `name` ASC));
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.venta
+-- Table inkapharmacy.sale
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`venta` (
-  `nro_venta` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATETIME(6) NOT NULL,
-  `cod_clt` INT NOT NULL,
-  `cod_emp` INT NOT NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`nro_venta`),
-  CONSTRAINT `FK__venta__cod_emp__15502E78`
-    FOREIGN KEY (`cod_emp`)
-    REFERENCES `inkapharmacy`.`empleado` (`ci`)
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`sale` (
+  `sale_id` INT NOT NULL AUTO_INCREMENT,
+  `sale_date` DATETIME(6) NOT NULL,
+  `customer_id` INT NOT NULL,
+  `employee_id` INT NOT NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`sale_id`),
+  CONSTRAINT `FK__sale__employee_id__15502E78`
+    FOREIGN KEY (`employee_id`)
+    REFERENCES `inkapharmacy`.`employee` (`employee_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK__venta__cod_clt__145C0A3F`
-    FOREIGN KEY (`cod_clt`)
-    REFERENCES `inkapharmacy`.`cliente` (`cod_clt`)
+  CONSTRAINT `FK__sale__customer_id__145C0A3F`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `inkapharmacy`.`customer` (`customer_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.perfil
+-- Table inkapharmacy.role
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`perfil` (
-  `id_perfil` INT NOT NULL AUTO_INCREMENT,
-  `deta_perfil` VARCHAR(30) NULL,
-  PRIMARY KEY (`id_perfil`));
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`role` (
+  `role_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NULL,
+  PRIMARY KEY (`role_id`));
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.tienda
+-- Table inkapharmacy.store
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`tienda` (
-  `id_tienda` INT NOT NULL AUTO_INCREMENT,
-  `det_tienda` VARCHAR(50) NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`id_tienda`));
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`store` (
+  `store_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`store_id`));
 
 -- ----------------------------------------------------------------------------
 -- Table inkapharmacy.descripcion
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inkapharmacy`.`descripcion` (
   `id_descip` INT NOT NULL,
-  `nombre_medic` VARCHAR(30) NULL,
+  `name_medic` VARCHAR(30) NULL,
   `desc_medicamen` VARCHAR(30) NULL,
   PRIMARY KEY (`id_descip`));
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.detalleMedicamento
+-- Table inkapharmacy.detalleproduct
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleMedicamento` (
-  `cod_med` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`detalleproduct` (
+  `product_id` INT NOT NULL,
   `id_descrip` INT NOT NULL,
-  `estado` INT NULL,
-  CONSTRAINT `FK_detalleMedicamento_medicamento`
-    FOREIGN KEY (`cod_med`)
-    REFERENCES `inkapharmacy`.`medicamento` (`cod_med`)
+  `status` INT NULL,
+  CONSTRAINT `FK_detalleproduct_product`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `inkapharmacy`.`product` (`product_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_detalleMedicamento_descripcion`
+  CONSTRAINT `FK_detalleproduct_descripcion`
     FOREIGN KEY (`id_descrip`)
     REFERENCES `inkapharmacy`.`descripcion` (`id_descip`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 -- ----------------------------------------------------------------------------
--- Table inkapharmacy.cliente
+-- Table inkapharmacy.customer
 -- ----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `inkapharmacy`.`cliente` (
-  `cod_clt` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(15) NOT NULL,
-  `paterno` VARCHAR(20) NOT NULL,
-  `materno` VARCHAR(20) NULL,
-  `direccion` VARCHAR(30) NULL,
-  `telefono` VARCHAR(30) NULL,
-  `correo` VARCHAR(40) NULL,
-  `documento` VARCHAR(20) NULL,
-  `estado` INT NULL,
-  PRIMARY KEY (`cod_clt`));
+CREATE TABLE IF NOT EXISTS `inkapharmacy`.`customer` (
+  `customer_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(15) NOT NULL,
+  `last_name1` VARCHAR(20) NOT NULL,
+  `last_name2` VARCHAR(20) NULL,
+  `address` VARCHAR(30) NULL,
+  `telephone` VARCHAR(30) NULL,
+  `email` VARCHAR(40) NULL,
+  `document_number` VARCHAR(20) NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`customer_id`));
 SET FOREIGN_KEY_CHECKS = 1;
