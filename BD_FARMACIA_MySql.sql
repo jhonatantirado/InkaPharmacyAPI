@@ -302,6 +302,7 @@ CREATE TABLE IF NOT EXISTS `inkapharmacy`.`cliente` (
   `direccion` VARCHAR(30) NULL,
   `telefono` VARCHAR(30) NULL,
   `correo` VARCHAR(40) NULL,
+  `documento` VARCHAR(20) NULL,
   `estado` INT NULL,
   PRIMARY KEY (`cod_clt`));
 SET FOREIGN_KEY_CHECKS = 1;
