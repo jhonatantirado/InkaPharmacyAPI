@@ -1670,7 +1670,7 @@
             "minLength" : 1,
             "maxLength" : 20
           },
-          "IdentificationNumber" : {
+          "DocumentNumber" : {
             "type" : "string",
             "description" : "proveedor.nit",
             "minLength" : 1,
