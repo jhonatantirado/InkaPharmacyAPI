@@ -1690,13 +1690,6 @@
             "maxLength" : 30,
             "nullable" : true
           },
-          "LaboratoryId" : {
-            "type" : "integer",
-            "format" : "int32",
-            "description" : "proveedor.cod_lab",
-            "default" : 0,
-            "minimum" : 0
-          },
           "Status" : {
             "type" : "integer",
             "format" : "int32",
