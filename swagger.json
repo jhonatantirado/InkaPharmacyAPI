@@ -1268,6 +1268,13 @@
             "minLength" : 3,
             "maxLength" : 3
           },
+          "CurrencyISOCode" : {
+            "type" : "string",
+            "description" : "codigo ISO de la moneda",
+            "default" : "PEN",
+            "minLength" : 3,
+            "maxLength" : 3
+          },
           "Stock" : {
             "type" : "integer",
             "format" : "int32",
