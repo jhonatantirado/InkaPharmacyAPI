@@ -98,7 +98,7 @@
         "description" : "Obtener lista paginada de clientes",
         "parameters" : [ {
           "in" : "query",
-          "name" : "offset",
+          "name" : "page",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -107,7 +107,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "limit",
+          "name" : "size",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -447,7 +447,7 @@
         "description" : "Obtener lista paginada de medicamentos",
         "parameters" : [ {
           "in" : "query",
-          "name" : "offset",
+          "name" : "page",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -456,7 +456,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "limit",
+          "name" : "size",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -802,7 +802,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "offset",
+          "name" : "page",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -811,7 +811,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "limit",
+          "name" : "size",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -919,7 +919,7 @@
         "description" : "Obtener lista paginada de ordenes de venta a los clientes",
         "parameters" : [ {
           "in" : "query",
-          "name" : "offset",
+          "name" : "page",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -928,7 +928,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "limit",
+          "name" : "size",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -1052,7 +1052,7 @@
         "description" : "Obtener lista paginada de ordenes de compra a los proveedores",
         "parameters" : [ {
           "in" : "query",
-          "name" : "offset",
+          "name" : "page",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
@@ -1061,7 +1061,7 @@
           }
         }, {
           "in" : "query",
-          "name" : "limit",
+          "name" : "size",
           "schema" : {
             "type" : "integer",
             "format" : "int32",
