@@ -1807,6 +1807,22 @@
             "maxLength" : 30,
             "nullable" : true
           },
+          "RoleId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "codigo",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
+          "StoreId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "codigo",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
           "Username" : {
             "type" : "string",
             "description" : "usuario",
