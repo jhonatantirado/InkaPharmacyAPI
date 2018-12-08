@@ -20,6 +20,9 @@
     "name" : "Customers",
     "description" : "Mantenimiento de Clientes"
   }, {
+    "name" : "Employees",
+    "description" : "Mantenimiento de Empleados"
+  }, {
     "name" : "Products",
     "description" : "Mantenimiento de Medicamentos"
   }, {
@@ -1231,6 +1234,59 @@
           }
         }
       }
+    },
+    "/api/Employees/FindByUsername" : {
+      "get" : {
+        "tags" : [ "Employees" ],
+        "summary" : "Buscar empleado por nombre",
+        "security" : [ {
+          "BearerAuth" : [ ]
+        } ],
+        "operationId" : "FindEmployeeByUsername",
+        "description" : "Buscar empleado por nombre",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "Username",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Detalles de empleado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmployeeDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Error controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          },
+          "500" : {
+            "description" : "Error no controlado",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseErrorDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -1660,6 +1716,54 @@
         }
       },
       "ProviderDTO" : {
+        "type" : "object",
+        "required" : [ "Name", "IdentificationNumber" ],
+        "properties" : {
+          "ProviderId" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "proveedor.cod_provee",
+            "default" : 0,
+            "minimum" : 0,
+            "readOnly" : true
+          },
+          "Name" : {
+            "type" : "string",
+            "description" : "proveedor.nombre",
+            "minLength" : 1,
+            "maxLength" : 20
+          },
+          "DocumentNumber" : {
+            "type" : "string",
+            "description" : "proveedor.nit",
+            "minLength" : 1,
+            "maxLength" : 30
+          },
+          "Address" : {
+            "type" : "string",
+            "description" : "proveedor.direccion",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Telephone" : {
+            "type" : "string",
+            "description" : "proveedor.telefono",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "proveedor.estado, 1 activo, 0 inactivo",
+            "default" : 1,
+            "minimum" : 0,
+            "maximum" : 1
+          }
+        }
+      },
+      "EmployeeDTO" : {
         "type" : "object",
         "required" : [ "Name", "IdentificationNumber" ],
         "properties" : {
