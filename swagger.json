@@ -1767,36 +1767,55 @@
         "type" : "object",
         "required" : [ "Name", "IdentificationNumber" ],
         "properties" : {
-          "ProviderId" : {
+          "EmployeeId" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "proveedor.cod_provee",
+            "description" : "codigo",
             "default" : 0,
             "minimum" : 0,
             "readOnly" : true
           },
           "Name" : {
             "type" : "string",
-            "description" : "proveedor.nombre",
+            "description" : "nombre",
             "minLength" : 1,
             "maxLength" : 20
           },
-          "DocumentNumber" : {
+          "Last_name1" : {
             "type" : "string",
-            "description" : "proveedor.nit",
+            "description" : "apellido paterno",
             "minLength" : 1,
-            "maxLength" : 30
+            "maxLength" : 20
+          },
+          "Last_name2" : {
+            "type" : "string",
+            "description" : "apellido materno",
+            "minLength" : 1,
+            "maxLength" : 20
           },
           "Address" : {
             "type" : "string",
-            "description" : "proveedor.direccion",
+            "description" : "direccion",
             "minLength" : 1,
             "maxLength" : 30,
             "nullable" : true
           },
           "Telephone" : {
             "type" : "string",
-            "description" : "proveedor.telefono",
+            "description" : "telefono",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "nullable" : true
+          },
+          "Username" : {
+            "type" : "string",
+            "description" : "usuario",
+            "minLength" : 1,
+            "maxLength" : 30
+          },
+          "Email" : {
+            "type" : "string",
+            "description" : "telefono",
             "minLength" : 1,
             "maxLength" : 30,
             "nullable" : true
@@ -1804,7 +1823,7 @@
           "Status" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "proveedor.estado, 1 activo, 0 inactivo",
+            "description" : "estado, 1 activo, 0 inactivo",
             "default" : 1,
             "minimum" : 0,
             "maximum" : 1
