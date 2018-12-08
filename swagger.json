@@ -1392,7 +1392,7 @@
       },
       "CustomerDTO" : {
         "type" : "object",
-        "required" : [ "FirstName", "LastName1" ],
+        "required" : [ "Name", "Last_Name1" ],
         "properties" : {
           "CustomerId" : {
             "type" : "integer",
@@ -1402,19 +1402,19 @@
             "minimum" : 0,
             "readOnly" : true
           },
-          "FirstName" : {
+          "Name" : {
             "type" : "string",
             "description" : "Cliente.nombre",
             "minLength" : 1,
             "maxLength" : 15
           },
-          "LastName1" : {
+          "Last_Name1" : {
             "type" : "string",
             "description" : "Cliente.paterno",
             "minLength" : 1,
             "maxLength" : 20
           },
-          "LastName2" : {
+          "Last_Name2" : {
             "type" : "string",
             "description" : "Cliente.materno",
             "minLength" : 1,
@@ -1442,7 +1442,7 @@
             "maxLength" : 40,
             "nullable" : true
           },
-          "DocumentNumber" : {
+          "Document_Number" : {
             "type" : "string",
             "description" : "Cliente.documento",
             "minLength" : 1,
