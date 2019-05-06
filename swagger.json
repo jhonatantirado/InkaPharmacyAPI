@@ -743,7 +743,7 @@
           "BearerAuth" : [ ]
         } ],
         "operationId" : "FindProductByName",
-        "description" : "Buscar medicamento por nombre",
+        "description" : "Buscar medicamento por nombre. Devuelve solo un medicamento, el primero que coincida con el nombre exacto.",
         "parameters" : [ {
           "in" : "query",
           "name" : "ProductName",
